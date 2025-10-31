@@ -1,5 +1,6 @@
 package com.wesovilabs.festify.web.advice;
 
+import com.wesovilabs.festify.util.exception.AlbumNotFoundException;
 import com.wesovilabs.festify.util.exception.ArtistNotFoundException;
 import com.wesovilabs.festify.util.exception.InvalidIdException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,6 +30,14 @@ public class CustomExceptionHandler {
                 ex.getMessage()
         );
         pd.setTitle("Artista con id proporcionada no existe");
+        pd.setProperty("path", request.getRequestURI());
+        return pd;
+    }
+
+    @ExceptionHandler(AlbumNotFoundException.class)
+    ProblemDetail handleAlbumNotFoundException(AlbumNotFoundException ex, HttpServletRequest request) {
+        ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+        pd.setTitle("Album no existe");
         pd.setProperty("path", request.getRequestURI());
         return pd;
     }
