@@ -6,19 +6,18 @@ import jakarta.validation.constraints.*;
 
 public record AlbumRequest(
 
-    @NotBlank
-    Long artistId, 
+        @NotBlank 
+        Long artistId,
 
-    @NotBlank
-    @Size(max = 255, message = "El título no puede superar los 255 caracteres")
-    String title, 
- 
-    Date releaseDate, 
+        @NotBlank @Size(max = 255, message = "El título no puede superar los 255 caracteres") 
+        String title,
 
-    @PositiveOrZero
-    Integer tracksCount, 
+        Date releaseDate,
 
-    @PositiveOrZero
-    Integer durationSeconds) {
-    
+        @PositiveOrZero 
+        Integer tracksCount,
+
+        @PositiveOrZero 
+        Integer durationSeconds) {
+
 }

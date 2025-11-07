@@ -1,6 +1,6 @@
 package com.wesovilabs.festify.persistence.jpa.entity;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.sql.Date;
 
 import jakarta.persistence.*;
@@ -10,6 +10,7 @@ import jakarta.persistence.*;
 public class AlbumEntity {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, name = "artist_id")

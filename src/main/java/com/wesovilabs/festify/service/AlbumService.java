@@ -4,12 +4,9 @@ import java.util.List;
 
 import com.wesovilabs.festify.dto.request.AlbumRequest;
 import com.wesovilabs.festify.dto.response.AlbumResponse;
+import com.wesovilabs.festify.dto.response.ArtistDetailResponse;
 
 public interface AlbumService {
-    
-    List<AlbumResponse> listAlbum();
 
-    AlbumResponse createAlbum(AlbumRequest albumRequest);
-
-    AlbumResponse updateAlbum(String strId, AlbumRequest albumRequest);
+    AlbumResponse getAlbumById(String artistId);
 }
